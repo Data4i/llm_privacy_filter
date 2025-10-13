@@ -21,6 +21,15 @@ class Masker:
         )
 
     def mask_text(self, text: str, sensitivity: float = 1.0) -> dict:
+        """Masks sensitive information in the text.
+
+        Args:
+            text (str): The input text to be masked.
+            sensitivity (float, optional): The sensitivity threshold for masking. Defaults to 1.0.
+
+        Returns:
+            dict: A dictionary containing the masked text and the mapping of text segments to their associated entities.
+        """
         prompt = PromptTemplate.from_template(MASKING_PROMPT_TEMPLATE)
         entities = sort_entities(PDET, sensitivity)
         masked_llm = self.llm.with_structured_output(MaskState)
