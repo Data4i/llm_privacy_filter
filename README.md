@@ -21,6 +21,13 @@ It’s ideal for:
 * Redacting personally identifiable information (PII) in compliance with GDPR/CCPA.
 
 ---
+## Installation
+
+```bash
+pip install llm-privacy-filter==1.0.1
+```
+
+---
 
 ## 📦 Features
 

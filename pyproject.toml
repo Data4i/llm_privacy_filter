@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-privacy-filter"
-version = "1.0.0"
+version = "1.0.1"
 description = "A lightweight LLM-based privacy filter for masking sensitive entities in text."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -17,7 +17,6 @@ keywords = ["privacy", "llm", "masking", "langchain", "ai"]
 # Keep only minimal core dependencies — not every provider
 dependencies = [
     "langchain>=0.3.27",
-    "pydantic>=2.12.0",
     "langchain-ollama>=0.3.10",
 ]
 
