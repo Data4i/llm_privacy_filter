@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-privacy-filter"
+version = "1.0.0"
+description = "A lightweight LLM-based privacy filter for masking sensitive entities in text."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Okechukwu Obiahu", email = "paulobiahu@gmail.com"}
+]
+keywords = ["privacy", "llm", "masking", "langchain", "ai"]
+
+# Keep only minimal core dependencies — not every provider
+dependencies = [
+    "langchain>=0.3.27",
+    "pydantic>=2.12.0",
+    "langchain-ollama>=0.3.10",
+]
+
+[project.optional-dependencies]
+ollama = ["langchain-ollama>=0.3.10"]
+openai = ["langchain-openai>=0.3.35"]
+anthropic = ["langchain-anthropic>=0.3.22"]
+gemini = ["langchain-google-genai>=2.1.12"]
+all = [
+    "langchain-ollama>=0.3.10",
+    "langchain-openai>=0.3.35",
+    "langchain-anthropic>=0.3.22",
+    "langchain-google-genai>=2.1.12"
+]
+
+[project.urls]
+Repository = "https://github.com/Data4i/llm_privacy_filter"
+Issues = "https://github.com/Data4i/llm_privacy_filter/issues"
+
+[tool.setuptools.packages.find]
+include = ["llm_privacy_filter*"]
+exclude = [
+    "tests*",
+    "venv*",
+    "env*",
+    "__pycache__",
+    "*.ipynb",
+    ".ipynb_checkpoints",
+    "build*",
+    "dist*",
+]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["requirements.txt"]

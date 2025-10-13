@@ -1,9 +1,10 @@
-from utils import sort_entities
-from pdet import PDET
-from langchain.chat_models import init_chat_model
+from .utils import sort_entities
+from .pdet import PDET
+from .prompt_template import MASKING_PROMPT_TEMPLATE
+from .privacy_states import MaskState
+from .providers import get_llm
+
 from langchain_core.prompts import PromptTemplate
-from prompt_template import MASKING_PROMPT_TEMPLATE
-from privacy_states import MaskState
 
 class Masker:
     def __init__(
@@ -13,9 +14,9 @@ class Masker:
     ):    
         self.model = model
         self.model_provider = model_provider
-        self.llm = init_chat_model(
+        self.llm = get_llm(
             model=self.model, 
-            model_provider=self.model_provider, 
+            provider=self.model_provider, 
             temperature=0.0
         )
 
@@ -28,8 +29,6 @@ class Masker:
         return result.masked_text, result.text_to_entities
     
     def generalize_text(self, text: str, sensitivity: float = 1.0) -> str:
-        masked_text, _ = self.mask_text(text, sensitivity)
-        return masked_text
-           
-           
-
+        # masked_text, _ = self.mask_text(text, sensitivity)
+        # return masked_text
+        pass           
