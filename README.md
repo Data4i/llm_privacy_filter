@@ -317,7 +317,3 @@ If you find this project helpful:
 * Share your feedback or issues in the [Issue Tracker](https://github.com/Data4i/llm_privacy_filter/issues)
 
 ---
-
-**“Privacy isn’t an afterthought — it’s the default.”**
-
----
