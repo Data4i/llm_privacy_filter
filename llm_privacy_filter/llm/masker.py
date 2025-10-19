@@ -1,5 +1,5 @@
-from .pdet_manager import sort_entities
-from .pdet import PDET
+from ..utils.pdet_manager import sort_entities
+from ..utils.pdet import PDET
 from ..utils.prompt import MASKING_PROMPT_TEMPLATE
 from .states import MaskState
 from .providers import get_llm
